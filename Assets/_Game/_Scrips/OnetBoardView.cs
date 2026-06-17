@@ -16,12 +16,14 @@ namespace Game.Onet
         private Action<BoardCoord> selectionHandler;
         private OnetWorldCoordMapper coordMapper;
         private OnetDemoConfig demoConfig;
+        private Vector2 cellSize;
 
         public void Build(BoardState boardState, OnetDemoConfig config, Action<BoardCoord> onTileSelected)
         {
             demoConfig = config;
             selectionHandler = onTileSelected;
             coordMapper = new OnetWorldCoordMapper(config);
+            cellSize = coordMapper.GetCellSize();
             EnsureTiles(boardState);
         }
 
@@ -60,7 +62,7 @@ namespace Game.Onet
                     Vector3 worldPosition = coordMapper.GetTilePosition(coord);
                     OnetTileView tileView = Instantiate(tilePrefab, worldPosition, Quaternion.identity, boardRoot);
                     tileView.name = $"Tile_{row}_{column}";
-                    tileView.Initialize(coord, selectionHandler, demoConfig);
+                    tileView.Initialize(coord, selectionHandler, demoConfig, cellSize);
                     tileView.SetPosition(worldPosition);
                     tileViews.Add(coord, tileView);
                 }

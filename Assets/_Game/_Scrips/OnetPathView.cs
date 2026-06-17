@@ -14,9 +14,14 @@ namespace Game.Onet
         {
             demoConfig = config;
             coordMapper = new OnetWorldCoordMapper(config);
+            lineRenderer.useWorldSpace = true;
+            lineRenderer.loop = false;
             lineRenderer.positionCount = 0;
             lineRenderer.startWidth = config.pathThickness;
             lineRenderer.endWidth = config.pathThickness;
+            lineRenderer.numCapVertices = 4;
+            lineRenderer.numCornerVertices = 4;
+            lineRenderer.sortingOrder = config.indicatorSortingOrder + 1;
         }
 
         public void Clear()
@@ -43,7 +48,8 @@ namespace Game.Onet
 
             for (int index = 0; index < path.Points.Count; index++)
             {
-                lineRenderer.SetPosition(index, coordMapper.GetPathPosition(path.Points[index]));
+                Vector3 pathPosition = coordMapper.GetPathPosition(path.Points[index]);
+                lineRenderer.SetPosition(index, pathPosition);
             }
         }
     }

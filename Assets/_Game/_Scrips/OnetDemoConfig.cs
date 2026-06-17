@@ -16,13 +16,16 @@ namespace Game.Onet
         public int distinctIconCount = 10;
 
         [Min(0.1f)]
-        public float tileWorldWidth = 1.2f;
+        public float cellWidth = 1.2f;
 
         [Min(0.1f)]
-        public float tileWorldHeight = 1.2f;
+        public float cellHeight = 1.2f;
 
         [Min(0f)]
-        public float tileSpacing = 0.15f;
+        public float cellSpacingX = 0.15f;
+
+        [Min(0f)]
+        public float cellSpacingY = 0.15f;
 
         public Vector3 boardOrigin = Vector3.zero;
 
@@ -31,10 +34,10 @@ namespace Game.Onet
         [Min(0.01f)]
         public float pathThickness = 0.12f;
 
-        [Min(1)]
+        [Min(0)]
         public int tileSortingOrder = 0;
 
-        [Min(1)]
+        [Min(0)]
         public int indicatorSortingOrder = 1;
     }
 }

@@ -1872,12 +1872,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundImage: {fileID: 22437339}
   demoConfig:
-    playableRowCount: 4
-    playableColumnCount: 4
+    playableRowCount: 10
+    playableColumnCount: 8
     distinctIconCount: 10
-    tileWorldWidth: 1.1
-    tileWorldHeight: 1
-    tileSpacing: 0.15
+    cellWidth: 0.95
+    cellHeight: 1.2
+    cellSpacingX: 0.15
+    cellSpacingY: 0.15
     boardOrigin: {x: 0, y: 0, z: 0}
     pathOffset: {x: 0, y: 0, z: -0.1}
     pathThickness: 0.12
